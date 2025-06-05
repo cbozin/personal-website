@@ -1,6 +1,10 @@
 import Image from "next/image";
-import { Typography, Box, Avatar, Stack, Divider, AppBar, Container, Button, Toolbar, Card, CardContent, Grid, styled, Paper } from "@mui/material";
+import { Typography, Box, Avatar, Stack, Divider, AppBar, Container, Button, Toolbar, Card, CardContent, Grid, styled, Paper, TextField } from "@mui/material";
 import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineSeparator } from "@mui/lab";
+import Link from "next/link";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import ProjectCarousel from "./projects";
 
 
 export default function Home() {
@@ -9,22 +13,32 @@ export default function Home() {
       <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h6" style={{ flexGrow: 1 }}>Carolyn Bozin</Typography>
-          <Button color="inherit" href="/sign-in">Projects</Button>
-          <Button color="inherit" href="/sign-up">Experience</Button>
-          <Button color="inherit" href="/sign-in">Skills</Button>
-          <Button color="inherit" href="/sign-up">Contact</Button>
+          <Link href="#experience" passHref>
+            <Button>Experience</Button>
+          </Link>
+          <Link href="#projects" passHref>
+            <Button>Projects</Button>
+          </Link>
+          <Link href="#skills" passHref>
+            <Button>Skills</Button>
+          </Link>
+          <Link href="#contact" passHref>
+            <Button>Contact</Button>
+          </Link>
         </Toolbar>
       </AppBar>
       <Toolbar />
       <Divider />
-      <Stack justifyContent={"center"} alignItems={"center"} width={"80%"} height={"20%"} direction={"column"} mt={"40%"} mb={"30%"}>
-        <Avatar alt="profile photo" src="" sx={{ width: "12%", height: "50%" }} />
-        <Typography variant="h1" m={"1%"} >Hi, I'm Carolyn.</Typography>
-        <Typography>Carolyn is ...............................................................................</Typography>
-      </Stack>
+      <Box display={"flex"} flexDirection={"column"} width={"80%"} mt={"5%"} mb={"5%"} textAlign={"center"} alignItems={"center"} justifyContent={"center"}>
+        <Stack direction={"column"} alignItems={"center"} justifyContent={"center"} mt={"120%"} mb={"40%"} width={"100%"}>
+          <Avatar alt="profile photo" src="" sx={{ width: "10%", height: "60%" }} />
+          <Typography variant="h1" m={"1%"} >{"Hi, I'm Carolyn."}</Typography>
+          <Typography variant="body1">I am a Software Developer with an interest in backend development and data science. I graduated from Gonzaga University with a B.S. in Computer Science, where I was president of the Women in Computing Club.</Typography>
+        </Stack>
+      </Box>
       <Divider />
-      <Typography variant="h2">My Experience</Typography>
-      <Box display={"flex"} flexDirection={"column"} width={"80%"} mt={"5%"} mb={"10%"}>
+      <Box id={"experience"} display={"flex"} flexDirection={"column"} width={"80%"} mt={"5%"} mb={"5%"} textAlign={"center"} alignItems={"center"} justifyContent={"center"}>
+        <Typography variant="h2" mb={3}>My Experience</Typography>
         <Timeline position="alternate">
           <TimelineItem>
             <TimelineSeparator>
@@ -32,7 +46,7 @@ export default function Home() {
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent sx={{ py: '12px', px: 2 }}>
-              <Typography variant="h6" component="span">
+              <Typography variant="h5" component="span">
                 Library Student Lead
               </Typography>
               <Typography>
@@ -46,7 +60,7 @@ export default function Home() {
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent sx={{ py: '12px', px: 2 }}>
-              <Typography variant="h6" component="span">
+              <Typography variant="h5" component="span">
                 Solutions Engineering Intern
               </Typography>
               <Typography>Because you need rest</Typography></TimelineContent>
@@ -57,7 +71,7 @@ export default function Home() {
               <TimelineConnector />
             </TimelineSeparator>
             <TimelineContent sx={{ py: '12px', px: 2 }}>
-              <Typography variant="h6" component="span">
+              <Typography variant="h5" component="span">
                 Software Engineering Fellow
               </Typography>
               <Typography>Because you need rest</Typography></TimelineContent>
@@ -65,19 +79,9 @@ export default function Home() {
         </Timeline>
       </Box>
       <Divider />
-      <Typography variant="h2">My Projects</Typography>
-      <Grid container spacing={2}>
-        <Grid item>
-          <Card>
-            <CardContent>
-              <Typography>Test
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
-      <Typography variant="h2">My Skills</Typography>
-      <Typography variant="h2">Contact Me!</Typography>
+       <Typography variant="h2" mb={3}>My Projects</Typography>
+      <ProjectCarousel/>
+
     </Box>
   );
 }
