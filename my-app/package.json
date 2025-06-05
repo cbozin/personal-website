@@ -13,7 +13,11 @@
     "@emotion/styled": "^11.13.0",
     "@mui/lab": "^5.0.0-alpha.173",
     "@mui/material": "^5.16.7",
+<<<<<<< HEAD
     "next": "^14.2.29",
+=======
+    "next": "^14.2.7",
+>>>>>>> a64d2f43cc5079cc39b9c21e316fb870bc567f83
     "react": "^18",
     "react-dom": "^18",
     "react-slick": "^0.30.3",
