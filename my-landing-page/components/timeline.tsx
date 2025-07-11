@@ -1,6 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card'
-import { Briefcase, Database, GraduationCap, Star, Cpu, Code, Layers } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { Code, Cpu, GraduationCap, Layers } from 'lucide-react'
 export default function ExperienceTimeline() {
   const experiences = [
   {
@@ -72,7 +71,7 @@ export default function ExperienceTimeline() {
           <div className="absolute left-5 top-0 h-full w-px bg-gradient-to-b from-zinc-200 via-zinc-400 to-zinc-200 dark:from-zinc-700 dark:via-zinc-400 dark:to-zinc-700" />
           
           <div className="space-y-8">
-            {experiences.map((experience, index) => (
+            {experiences.map((experience) => (
               <div key={experience.id} className="relative pl-16">
                 {/* Icon indicator */}
                 <div className="absolute left-0 top-1 flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white shadow dark:border-zinc-700 dark:bg-zinc-900">

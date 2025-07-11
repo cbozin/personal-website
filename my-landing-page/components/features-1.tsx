@@ -1,6 +1,6 @@
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Cpu, Database, Code, Smartphone, MessageSquare, Globe } from 'lucide-react'
-import Link from 'next/link'
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Code, Cpu, Globe, MessageSquare, Smartphone } from 'lucide-react';
+import Link from 'next/link';
 import { ReactNode } from 'react';
 
 const projects = [
