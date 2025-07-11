@@ -8,7 +8,7 @@ const projects = [
     id: 1,
     title: "Product Microservices",
     date: "May 2025",
-    url: "#",
+    url: "https://github.com/cbozin/spring-microservices",
     icon: Cpu,
     tech: ["Java", "Spring Boot", "Kafka", "Docker"],
     description: "Engineered microservices architecture with Product, Order, Inventory, and Notification Services using Spring Boot and Java 17.",
@@ -22,7 +22,7 @@ const projects = [
     id: 2,
     title: "Habit Tracker App",
     date: "May 2025",
-    url: "#",
+    url: "https://frozen-plains-83661-38536826bbb5.herokuapp.com/",
     icon: Smartphone,
     tech: ["Ruby on Rails", "PostgreSQL", "Devise"],
     description: "Full-stack habit tracker with authentication, calendar check-ins, and streak tracking.",
@@ -36,7 +36,7 @@ const projects = [
     id: 3,
     title: "Twitter Sentiment Analysis",
     date: "Feb - Apr 2024",
-    url: "#",
+    url: "https://github.com/cbozin/sentiment-analysis-twitter-data",
     icon: MessageSquare,
     tech: ["Python", "GCP", "BigQuery", "Vertex AI"],
     description: "Analyzed Ukraine war-related sentiment trends from 47.5GB of Twitter data.",
@@ -49,8 +49,8 @@ const projects = [
   {
     id: 4,
     title: "AI Flashcards",
-    date: "2024",
-    url: "https://github.com/cbozin/ai-flashcards",
+    date: "July 2024",
+    url: "https://ai-flashcards-923xs34wv-cbozins-projects.vercel.app/",
     icon: Code,
     tech: ["Next.js", "TypeScript", "OpenAI API"],
     description: "Web app that generates and quizzes users with AI-powered flashcards.",
@@ -63,10 +63,10 @@ const projects = [
   {
     id: 5,
     title: "Customer Support Bot",
-    date: "2024",
-    url: "https://github.com/cbozin/customer-support-bot",
+    date: "Aug 2024",
+    url: "https://customer-support-2x35wb3pb-cbozins-projects.vercel.app/",
     icon: MessageSquare,
-    tech: ["Next.js", "TypeScript", "AI"],
+    tech: ["Next.js", "TypeScript", "OpenAI API"],
     description: "AI-powered chatbot for answering customer inquiries.",
     highlights: [
       "Natural language responses",
@@ -78,7 +78,7 @@ const projects = [
     id: 6,
     title: "Location Data Analysis",
     date: "Sep - Dec 2022",
-    url: "#",
+    url: "https://github.com/cbozin/quantified_self",
     icon: Globe,
     tech: ["Python", "Pandas", "Scikit-learn"],
     description: "Analysis of 1,000+ travel records with predictive modeling.",
@@ -92,7 +92,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="bg-zinc-50 py-16 md:py-32 dark:bg-transparent">
+    <section id="projects" className="bg-zinc-50 py-16 md:py-32 dark:bg-transparent">
       <div className="@container mx-auto max-w-5xl px-6">
         <div className="text-center">
           <h2 className="text-balance text-4xl font-semibold lg:text-5xl">My Projects</h2>

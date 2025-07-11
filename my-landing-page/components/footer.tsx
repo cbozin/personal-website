@@ -32,7 +32,7 @@ export default function FooterSection() {
     return (
         <footer className="py-16 md:py-32">
             <div className="mx-auto max-w-5xl px-6">
-                <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
+                {/* <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
                     {links.map((link, index) => (
                         <Link
                             key={index}
@@ -41,8 +41,8 @@ export default function FooterSection() {
                             <span>{link.title}</span>
                         </Link>
                     ))}
-                </div>
-                <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
+                </div> */}
+                {/* <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
                     <Link
                         href="https://github.com/cbozin"
                         target="_blank"
@@ -85,8 +85,8 @@ export default function FooterSection() {
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
                     </Link>
-                </div>
-                <span className="text-muted-foreground block text-center text-sm"> © {new Date().getFullYear()} Tailark, All rights reserved</span>
+                </div> */}
+                <span className="text-muted-foreground block text-center text-sm"> Made using Tailark components</span>
             </div>
         </footer>
     )

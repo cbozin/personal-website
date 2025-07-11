@@ -24,7 +24,7 @@ export default function HeroSection() {
                                         size="lg"
                                         className="px-5 text-base">
                                         <Link href="#link">
-                                            <span className="text-nowrap">Start Building</span>
+                                            <span className="text-nowrap">View my Resume</span>
                                         </Link>
                                     </Button>
                                     <Button
@@ -34,7 +34,7 @@ export default function HeroSection() {
                                         variant="ghost"
                                         className="px-5 text-base">
                                         <Link href="#link">
-                                            <span className="text-nowrap">Request a demo</span>
+                                            <span className="text-nowrap">Contact Me</span>
                                         </Link>
                                     </Button>
                                 </div>
