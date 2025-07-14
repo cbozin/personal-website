@@ -1,60 +1,61 @@
-import React from 'react'
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+'use client'
+
+import React, { useState } from 'react'
+import { Button } from '@/components/button'
 import Image from 'next/image'
 import { HeroHeader } from './header'
 import { InfiniteSlider } from '@/components/ui/infinite-slider'
 import { ProgressiveBlur } from '@/components/ui/progressive-blur'
+import { ResumeModal } from './resume-modal'
+import { smoothScrollTo } from '@/utils/scroll'
+
 
 export default function HeroSection() {
+    const [isResumeOpen, setIsResumeOpen] = useState(false)
+
     return (
         <>
             <HeroHeader />
             <main className="overflow-x-hidden">
                 <section>
-                    <div className="pb-24 pt-12 md:pb-32 lg:pb-56 lg:pt-44">
-                        <div className="relative mx-auto flex max-w-6xl flex-col px-6 lg:block">
-                            <div className="mx-auto max-w-lg text-center lg:ml-0 lg:w-1/2 lg:text-left">
-                                <h1 className="mt-8 max-w-2xl text-balance text-5xl font-medium md:text-6xl lg:mt-16 xl:text-7xl">Hi, I&apos;m Carolyn.</h1>
-                                <p className="mt-8 max-w-2xl text-pretty text-lg">I build data-driven solutions—from full-stack apps to AI/ML pipelines—using Python, GCP, and modern web stacks.
-                                            Passionate about turning raw data into actionable insights and scalable systems.</p>
-                          <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start">
-                                    <Button
-                                        asChild
-                                        size="lg"
-                                        className="px-5 text-base">
-                                        <Link href="#link">
-                                            <span className="text-nowrap">View my Resume</span>
-                                        </Link>
-                                    </Button>
-                                    <Button
-                                        key={2}
-                                        asChild
-                                        size="lg"
-                                        variant="ghost"
-                                        className="px-5 text-base">
-                                        <Link href="#contact">
-                                            <span className="text-nowrap">Contact Me</span>
-                                        </Link>
-                                    </Button>
-                                </div>
+                    <div className="pb-24 pt-12 md:pb-32 lg:pb-40 lg:pt-32"> 
+                        <div className="mx-auto max-w-4xl px-6 text-center"> 
+                            <h1 className="mt-8 text-balance text-5xl font-medium md:text-6xl xl:text-7xl">
+                                Hi, I'm Carolyn.
+                            </h1>
+                            <p className="mt-8 text-pretty text-lg mx-auto max-w-2xl"> 
+                                I build data-driven solutions—from full-stack apps to AI/ML pipelines—using Python, GCP, and modern web stacks.
+                                Passionate about turning raw data into actionable insights and scalable systems.
+                            </p>
+                            <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"> 
+                                <Button
+                                    size="lg"
+                                    className="px-8 text-base"
+                                    onClick={() => setIsResumeOpen(true)}
+                                >
+                                    View my Resume
+                                </Button>
+                                <Button
+                                    size="lg"
+                                    variant="ghost"
+                                    className="px-8 text-base"
+                                    onClick = {(e) => {
+                                        e.preventDefault();
+                                        smoothScrollTo('contact');
+                                    }}
+                                >
+                                    Contact Me
+                                </Button>
                             </div>
-                            <Image
-                                className="-z-10 order-first ml-auto h-56 w-full object-cover invert sm:h-96 lg:absolute lg:inset-0 lg:-right-20 lg:-top-96 lg:order-last lg:h-max lg:w-2/3 lg:object-contain dark:mix-blend-lighten dark:invert-0"
-                                src="https://ik.imagekit.io/lrigu76hy/tailark/abstract-bg.jpg?updatedAt=1745733473768"
-                                alt="Abstract Object"
-                                height="4000"
-                                width="3000"
-                            />
                         </div>
                     </div>
                 </section>
                 <section className="bg-background pb-16 md:pb-32">
                     <div className="group relative m-auto max-w-6xl px-6">
                         <div className="flex flex-col items-center md:flex-row">
-                            {/* <div className="md:max-w-44 md:border-r md:pr-6">
+                            <div className="md:max-w-44 md:border-r md:pr-6">
                                 <p className="text-end text-sm">My tech arsenal</p>
-                            </div> */}
+                            </div>
                             <div className="relative py-6 md:w-[calc(100%-11rem)]">
                             <InfiniteSlider
                                 speedOnHover={20}
@@ -142,6 +143,8 @@ export default function HeroSection() {
                         </div>
                     </div>
                 </section>
+
+                <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
             </main>
         </>
     )

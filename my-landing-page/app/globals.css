@@ -120,3 +120,28 @@
     @apply bg-background text-foreground;
   }
 }
+
+.modal-enter {
+  opacity: 0;
+}
+.modal-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.modal-exit {
+  opacity: 1;
+}
+.modal-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* Replace or remove the previous cursor styles */
+button, a, [role="button"] {
+  cursor: pointer; 
+}
+
+/* For PDF iframe */
+iframe {
+  cursor: auto; 
+}

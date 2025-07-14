@@ -1,5 +1,9 @@
+'use client'
+
 import { Card, CardContent } from '@/components/ui/card'
 import { Code, Cpu, GraduationCap, Layers } from 'lucide-react'
+import { motion } from 'framer-motion'
+
 export default function ExperienceTimeline() {
   const experiences = [
   {
@@ -58,57 +62,66 @@ export default function ExperienceTimeline() {
 
   return (
     <section id="experience" className="bg-zinc-50 py-16 md:py-32 dark:bg-transparent">
-      <div className="@container mx-auto max-w-5xl px-6">
-        {/* Added header matching projects section */}
+      <div className="@container mx-auto max-w-6xl px-6">
         <div className="text-center">
           <h2 className="text-balance text-4xl font-semibold lg:text-5xl">My Experience</h2>
           <p className="mt-4">Professional journey and key career milestones</p>
         </div>
         
-        {/* Timeline content */}
-        <div className="relative max-w-2xl mx-auto mt-8 md:mt-16">
-          {/* Timeline line */}
-          <div className="absolute left-5 top-0 h-full w-px bg-gradient-to-b from-zinc-200 via-zinc-400 to-zinc-200 dark:from-zinc-700 dark:via-zinc-400 dark:to-zinc-700" />
+         <div className="relative mt-12 md:mt-20">
+          {/* Centered Timeline line */}
+          <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-gradient-to-b from-zinc-200 via-zinc-400 to-zinc-200 dark:from-zinc-700 dark:via-zinc-400 dark:to-zinc-700" />
           
-          <div className="space-y-8">
-            {experiences.map((experience) => (
-              <div key={experience.id} className="relative pl-16">
-                {/* Icon indicator */}
-                <div className="absolute left-0 top-1 flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white shadow dark:border-zinc-700 dark:bg-zinc-900">
-                  {experience.icon}
-                </div>
-                
-                <Card className="hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex gap-4">
-                      <div className="flex-1">
-                        <h3 className="font-medium">{experience.title}</h3>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <span>{experience.company}</span>
-                          <span>•</span>
-                          <span>{experience.date}</span>
+          <div className="space-y-12 md:space-y-24">
+            {experiences.map((experience, index) => {
+              const isLeft = index % 2 === 0;
+              
+              return (
+                <div 
+                  key={experience.id} 
+                  className={`relative w-full ${isLeft ? 'pr-8 md:pr-[calc(50%+32px)]' : 'pl-8 md:pl-[calc(50%+32px)]'}`}
+                >
+                  {/* Icon positioned on the timeline with spacing */}
+                  <div className="absolute left-0 top-6 z-10 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border-2 border-zinc-200 bg-white shadow-lg dark:border-zinc-700 dark:bg-zinc-900 md:left-1/2">
+                    {experience.icon}
+                  </div>
+                  
+                  {/* Card with gap from timeline */}
+                  <motion.div
+                    className={`mt-12 md:mt-0 ${isLeft ? 'mr-8' : 'ml-8'}`} // Increased margin
+                    whileHover={{ 
+                      scale: 1.03,
+                      transition: { duration: 0.3 }
+                    }}
+                  >
+                    <Card className="hover:shadow-xl transition-all duration-300">
+                      <CardContent className="p-6 md:p-8">
+                        <div className="flex gap-4">
+                          <div className="flex-1">
+                            <h3 className="text-lg font-medium">{experience.title}</h3>
+                            <div className="flex items-center gap-2 mt-2 text-muted-foreground">
+                              <span>{experience.company}</span>
+                              <span>•</span>
+                              <span>{experience.date}</span>
+                            </div>
+                            <p className="mt-4 text-base">{experience.description}</p>
+                          </div>
                         </div>
-                        <p className="mt-2 text-sm">{experience.description}</p>
-                      </div>
-                      {/* {index == 0 && (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 dark:bg-green-900/30 dark:text-green-300">
-                          <Star className="h-3 w-3" /> Current
-                        </span>
-                      )} */}
-                    </div>
-                    
-                    <ul className="mt-4 space-y-1">
-                      {experience.highlights.map((highlight, i) => (
-                        <li key={i} className="flex items-start text-sm">
-                          <span className="mr-2 mt-0.5 flex h-1.5 w-1.5 rounded-full bg-zinc-400" />
-                          {highlight}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
+                        
+                        <ul className="mt-6 space-y-2">
+                          {experience.highlights.map((highlight, i) => (
+                            <li key={i} className="flex items-start text-base">
+                              <span className="mr-3 mt-1.5 flex h-2 w-2 rounded-full bg-zinc-400" />
+                              {highlight}
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

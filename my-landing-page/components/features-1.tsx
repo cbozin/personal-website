@@ -1,7 +1,10 @@
+'use client'
+
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Code, Cpu, Globe, MessageSquare, Smartphone } from 'lucide-react';
 import Link from 'next/link';
 import { ReactNode } from 'react';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
@@ -91,15 +94,15 @@ const projects = [
 ];
 
 export default function Projects() {
-  return (
+   return (
     <section id="projects" className="bg-zinc-50 py-16 md:py-32 dark:bg-transparent">
-      <div className="@container mx-auto max-w-5xl px-6">
+      <div className="@container mx-auto max-w-6xl px-6">
         <div className="text-center">
           <h2 className="text-balance text-4xl font-semibold lg:text-5xl">My Projects</h2>
           <p className="mt-4">Selected technical projects showcasing my full-stack and data engineering skills</p>
         </div>
         
-        <div className="@min-4xl:max-w-full @min-4xl:grid-cols-3 mx-auto mt-8 grid max-w-sm gap-6 md:mt-16">
+        <div className="@min-4xl:max-w-full @min-4xl:grid-cols-3 mx-auto mt-12 grid max-w-sm gap-6 md:mt-20 md:max-w-none">
           {projects.map((project) => (
             <Link 
               key={project.id} 
@@ -108,34 +111,48 @@ export default function Projects() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Card className="group h-full flex flex-col shadow-zinc-950/5 hover:shadow-lg transition-shadow">
-                <CardHeader className="pb-3 flex-grow-0">
-                  <CardDecorator>
-                    <project.icon className="size-6" aria-hidden />
-                  </CardDecorator>
-                  <div className="mt-6">
-                    <h3 className="font-medium">{project.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{project.date}</p>
-                  </div>
-                  <div className="mt-2 flex flex-wrap justify-center gap-2">
-                    {project.tech.map((tech) => (
-                      <span key={tech} className="rounded-full bg-zinc-100 px-3 py-1 text-xs dark:bg-zinc-800">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-sm mb-2">{project.description}</p>
-                  <ul className="text-xs text-muted-foreground space-y-1">
-                    {project.highlights.map((highlight, i) => (
-                      <li key={i} className="relative pl-3 before:absolute before:left-0 before:top-2 before:size-1 before:rounded-full before:bg-muted-foreground">
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+              <motion.div
+                whileHover={{ 
+                  y: -5,
+                  transition: { duration: 0.2 }
+                }}
+                className="h-full"
+              >
+                <Card className="group h-full flex flex-col shadow-zinc-950/5 hover:shadow-lg transition-shadow hover:border-zinc-300 dark:hover:border-zinc-600">
+                  <CardHeader className="pb-3 flex-grow-0">
+                    <AnimatedCardDecorator>
+                      <project.icon className="size-6" aria-hidden />
+                    </AnimatedCardDecorator>
+                    <div className="mt-6">
+                      <h3 className="font-medium text-lg">{project.title}</h3>
+                      <p className="text-sm text-muted-foreground mt-1">{project.date}</p>
+                    </div>
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {project.tech.map((tech) => (
+                        <span 
+                          key={tech} 
+                          className="rounded-full bg-zinc-100 px-2.5 py-1 text-[0.7rem] dark:bg-zinc-800"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </CardHeader>
+                  <CardContent className="flex-grow pt-0 pb-4">
+                    <p className="text-sm mb-3 line-clamp-2">{project.description}</p>
+                    <ul className="text-xs text-muted-foreground space-y-1.5">
+                      {project.highlights.map((highlight, i) => (
+                        <li 
+                          key={i} 
+                          className="relative pl-3 before:absolute before:left-0 before:top-2 before:size-1.5 before:rounded-full before:bg-muted-foreground line-clamp-2"
+                        >
+                          {highlight}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
             </Link>
           ))}
         </div>
@@ -144,16 +161,32 @@ export default function Projects() {
   );
 }
 
-const CardDecorator = ({ children }: { children: ReactNode }) => (
-  <div className="relative mx-auto size-36 duration-200 [--color-border:color-mix(in_oklab,var(--color-zinc-950)10%,transparent)] group-hover:[--color-border:color-mix(in_oklab,var(--color-zinc-950)20%,transparent)] dark:[--color-border:color-mix(in_oklab,var(--color-white)15%,transparent)] dark:group-hover:bg-white/5 dark:group-hover:[--color-border:color-mix(in_oklab,var(--color-white)20%,transparent)]">
-    <div
-      aria-hidden
-      className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:24px_24px]"
-    />
-    <div
-      aria-hidden
-      className="bg-radial to-background absolute inset-0 from-transparent to-75%"
-    />
-    <div className="bg-background absolute inset-0 m-auto flex size-12 items-center justify-center border-l border-t">{children}</div>
-  </div>
-);
+const AnimatedCardDecorator = ({ children }: { children: ReactNode }) => {
+  return (
+    <motion.div 
+      className="relative mx-auto size-32 duration-200 [--color-border:color-mix(in_oklab,var(--color-zinc-950)10%,transparent)] group-hover:[--color-border:color-mix(in_oklab,var(--color-zinc-950)20%,transparent)] dark:[--color-border:color-mix(in_oklab,var(--color-white)15%,transparent)] dark:group-hover:bg-white/5 dark:group-hover:[--color-border:color-mix(in_oklab,var(--color-white)20%,transparent)]"
+      whileHover={{
+        scale: 1.05,
+        transition: { duration: 0.3 }
+      }}
+    >
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:24px_24px]"
+      />
+      <div
+        aria-hidden
+        className="bg-radial to-background absolute inset-0 from-transparent to-75%"
+      />
+      <motion.div 
+        className="bg-background absolute inset-0 m-auto flex size-12 items-center justify-center border-l border-t"
+        whileHover={{
+          rotate: 5,
+          transition: { duration: 0.3 }
+        }}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
+  );
+};
