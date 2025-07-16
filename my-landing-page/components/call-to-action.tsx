@@ -61,6 +61,18 @@ export default function CallToAction() {
                             </svg>
                         </Link>
                     </div>
+                     {/* Contact Info Text */}
+                        <div className=" mt-5 text-center space-y-2">
+                            <p className="text-muted-foreground">
+                                Email: <a href="mailto:bozincarolyn@gmail.com" className="hover:text-primary transition-colors">bozincarolyn@gmail.com</a>
+                            </p>
+                            <p className="text-muted-foreground">
+                                GitHub: <a href="https://github.com/cbozin" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">github.com/cbozin</a>
+                            </p>
+                            <p className="text-muted-foreground">
+                                LinkedIn: <a href="https://linkedin.com/in/carolyn-bozin/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">linkedin.com/in/carolyn-bozin</a>
+                            </p>
+                        </div>
                 </div>
             </div>
         </section>
