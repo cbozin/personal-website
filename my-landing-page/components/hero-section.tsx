@@ -21,7 +21,7 @@ export default function HeroSection() {
                                 Hi, I&apos;m Carolyn.
                             </h1>
                             <p className="mt-8 text-pretty text-lg mx-auto max-w-2xl"> 
-                                I build data-driven solutions—from full-stack apps to AI/ML pipelines—using Python, GCP, and modern web stacks.
+                                I build data-driven solutions, from full-stack apps to AI/ML pipelines using Python, GCP, and modern web stacks.
                                 Passionate about turning raw data into actionable insights and scalable systems.
                             </p>
                             <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"> 

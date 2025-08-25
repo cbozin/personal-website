@@ -6,6 +6,18 @@ import { motion } from 'framer-motion'
 
 export default function ExperienceTimeline() {
   const experiences = [
+    {
+    id: 0,
+    title: "Data Analysis Intern",
+    company: "Trupanion",
+    date: "July 2025 - Present",
+    icon: <Cpu className="h-5 w-5" />, // Using CPU icon for AI work
+    description: "Analyzing pet insurance retention data and building predictive models for decision-making",
+    highlights: [
+      "Analyzing first-year retention data using Excel and Python to identify trends",
+      "Building machine learning model with 80%+ accuracy to predict cancelations"
+    ]
+  },
   {
     id: 1,
     title: "AI Trainer",
@@ -27,7 +39,7 @@ export default function ExperienceTimeline() {
     description: "Built full-stack projects using modern web technologies",
     highlights: [
       "Developed Customer Support Bot, AI Flashcards, and Pantry Tracker",
-      "Tech: React, Next.js, Firebase, OpenAI API",
+      "Tech: Next.js, TypeScript, Firebase, OpenAI API",
       "Followed Agile with CI/CD pipelines"
     ]
   },
@@ -40,7 +52,7 @@ export default function ExperienceTimeline() {
     description: "Developed internal employee training web application",
     highlights: [
       "Reduced employee training time by 50%",
-      "Tech stack: C#, ASP.NET, JavaScript, SQL",
+      "Tech stack: C#, ASP.NET MVC, JavaScript, SQL",
       "Conducted daily standups with team members"
     ]
   },
@@ -52,7 +64,7 @@ export default function ExperienceTimeline() {
     icon: <GraduationCap className="h-5 w-5" />,
     description: "Magna Cum Laude, WSOS Scholar, WWIN Star Scholar",
     highlights: [
-      "Key Courses: Database Management (SQL), Data Structures (C++), Big Data (GCP)",
+      "Key Courses: Database Management (SQL), Data Structures (C++), Big Data (GCP), Data Science (Python)",
       "Parallel/Cloud Computing, Software Engineering",
       "UI/UX Design, Linux & DevOps"
     ]

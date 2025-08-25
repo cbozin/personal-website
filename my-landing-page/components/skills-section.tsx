@@ -5,23 +5,23 @@ import { Card, CardContent } from './ui/card'
 
 export default function SkillsSection() {
   const skills = {
-    "Programming Languages": ['Python', 'Java', 'C/C++', 'Ruby', 'JavaScript'],
+    "Programming Languages": ['Python', 'Ruby', 'JavaScript','Java', 'C++'],
     "Web Development": [
-      'Node.js', 'Flask', 'Ruby on Rails', 'ASP.NET MVC', 
-      'React', 'Next.js', 'HTML/CSS', 'Bootstrap'
+      'Next.js','Ruby on Rails','Flask', 'ASP.NET MVC', 
+       'HTML/CSS', 'Bootstrap'
     ],
     "Database & Cloud": [
       'SQL', 'Google Cloud Platform', 'PostgreSQL', 
       'Microsoft SQL Server', 'MongoDB'
     ],
     "Tools & Practices": [
-      'Unix/Linux', 'Git', 'Docker', 'Vercel', 
-      'Agile', 'CI/CD', 'Test Driven Development'
+      'Linux', 'Git/Github', 'Docker', 'Vercel & Heroku', 
+      'Agile & CI/CD', 'Test Driven Development'
     ],
     "Data Science/ML": [
-      'Pandas', 'NumPy', 'SciPy', 'MatPlotLib', 
+      'Pandas', 'NumPy', 'MatPlotLib', 
       'Scikit-learn', 'Jupyter', 'OpenAI API',
-      'Kaggle', 'VertexAI'
+      'VertexAI'
     ]
   }
 

@@ -33,7 +33,7 @@ export default function LogoCloud() {
                                     src="/icons/google-cloud2.svg"
                                     alt="Google Cloud Logo"
                                     width={80}
-                                    height={32}
+                                    height={40}
                                 />
                             </div>
 
@@ -43,7 +43,7 @@ export default function LogoCloud() {
                                     src="https://html.tailus.io/blocks/customers/github.svg"
                                     alt="GitHub Logo"
                                     width={80}
-                                    height={24}
+                                    height={20}
                                 />
                             </div>
 
